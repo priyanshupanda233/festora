@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#131B2E" />
+  <circle cx="200" cy="130" r="70" fill="rgba(245, 158, 11, 0.08)" />
+  <circle cx="200" cy="130" r="45" fill="rgba(245, 158, 11, 0.15)" />
+  <!-- Diya icon -->
+  <g transform="translate(170, 95) scale(0.9)">
+    <path d="M32 6 C32 6, 23 18, 23 24 C23 29 27 33 32 33 C37 33 41 29 41 24 C41 18 32 6 32 6 Z" fill="#FBBF24" />
+    <path d="M12 31 C12 31 18 37 32 37 C46 37 52 31 52 31 C52 42 44 47 32 47 C20 47 12 42 12 31 Z" fill="#D97706" />
+    <ellipse cx="32" cy="31" rx="20" ry="4" fill="#F59E0B" />
+  </g>
+  <text x="200" y="210" font-family="'Outfit', system-ui, sans-serif" font-size="16" font-weight="600" fill="#FBBF24" text-anchor="middle">
+    Festive Lighting Preview
+  </text>
+  <text x="200" y="235" font-family="'Outfit', system-ui, sans-serif" font-size="12" fill="#94A3B8" text-anchor="middle">
+    Photo available upon admin upload
+  </text>
+</svg>

@@ -1,0 +1,369 @@
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const DATA_DIR = path.join(__dirname, 'data');
+const DB_FILE = path.join(DATA_DIR, 'products.json');
+
+// Ensure data directory exists
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+
+// 15 Initial Sample Electronic/LED Festive Lighting Products
+export const INITIAL_PRODUCTS = [
+  {
+    id: 'prod-001',
+    name: 'Flameless LED Diya Set (Pack of 12)',
+    description: 'Realistic flickering warm amber LED diyas with smokeless, safe battery operation. Perfect for home decor, rangoli borders, and festive temple corners.',
+    image_url: '/uploads/sample_led_diya_set.jpg',
+    category: 'LED Diyas and Lamps',
+    price: 399,
+    variations: {
+      colors: ['Warm Amber Glow', 'Golden Yellow'],
+      sizes: ['Standard Diya Size'],
+      pack_size: 'Pack of 12'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-01T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-01T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-002',
+    name: 'Crystal LED Tea Light Candles (Pack of 24)',
+    description: 'Ultra-bright smokeless LED tea light candles with long battery life. Ideal for dining tables, pooja rooms, floating glass bowls, and Diwali pathway accents.',
+    image_url: '/uploads/sample_tea_light.jpg',
+    category: 'LED Diyas and Lamps',
+    price: 549,
+    variations: {
+      colors: ['Warm White', 'Flame Yellow'],
+      sizes: ['3.8cm Diameter'],
+      pack_size: 'Pack of 24'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-02T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-02T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-003',
+    name: 'Warm White Copper Wire Fairy String Lights',
+    description: 'Flexible bendable micro-LED fairy lights on insulated copper wire. USB and plug-in power options to drape around mandapams, photo frames, and plants.',
+    image_url: '/uploads/sample_fairy_warm_white.jpg',
+    category: 'Fairy and String Lights',
+    price: 249,
+    variations: {
+      colors: ['Warm White'],
+      sizes: ['10 Metres (100 LEDs)', '20 Metres (200 LEDs)'],
+      pack_size: 'Single Roll'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-03T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-03T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-004',
+    name: 'Multicolour 8-Mode Festive Fairy String Lights',
+    description: 'Vibrant RGB fairy string lights featuring 8 distinct lighting modes (twinkle, fade, waves, steady). Adds high-energy celebration vibes to balconies.',
+    image_url: '/uploads/sample_fairy_multicolor.jpg',
+    category: 'Fairy and String Lights',
+    price: 299,
+    variations: {
+      colors: ['Multicolour RGB'],
+      sizes: ['15 Metres (150 LEDs)', '30 Metres (300 LEDs)'],
+      pack_size: 'Single Roll'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-04T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-04T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-005',
+    name: 'Festive Window & Wall LED Curtain Lights',
+    description: 'Cascade curtain fairy lights measuring 3x3 metres with 300 warm glow micro-LEDs. Transforms plain living room curtains and backdrop walls into golden spectacles.',
+    image_url: '/uploads/sample_curtain_lights.jpg',
+    category: 'Curtain and Waterfall Lights',
+    price: 899,
+    variations: {
+      colors: ['Warm Golden', 'Ice White'],
+      sizes: ['3m x 3m (300 LEDs)', '3m x 2m (200 LEDs)'],
+      pack_size: '1 Set with Controller'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-05T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-05T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-006',
+    name: 'Heavy-Duty Waterproof LED Rope Lights',
+    description: 'Flexible round silicone-encased exterior rope lights. Weatherproof IP65 rating designed for terrace parapets, bungalow outlines, pillars, and garden fencing.',
+    image_url: '/uploads/sample_rope_lights.jpg',
+    category: 'Rope and Strip Lights',
+    price: 799,
+    variations: {
+      colors: ['Golden Amber', 'Warm White', 'Royal Blue'],
+      sizes: ['10 Metre Coil', '20 Metre Coil'],
+      pack_size: '1 Roll with Power Adapter'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-06T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-06T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-007',
+    name: 'Smart RGB LED Strip Lights with Remote',
+    description: 'Adhesive-backed 5050 SMD colour-changing strip light with wireless remote controller. Perfect for festive TV console backlighting, false ceiling cove, and bar areas.',
+    image_url: '/uploads/sample_strip_lights.jpg',
+    category: 'Rope and Strip Lights',
+    price: 599,
+    variations: {
+      colors: ['16-Colour RGB with Remote'],
+      sizes: ['5 Metre Reel', '10 Metre Reel'],
+      pack_size: 'Complete Kit'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-07T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-07T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-008',
+    name: 'Classic Golden Rice String Lights',
+    description: 'Traditional grain-shaped micro-bulb rice lights with warm golden filament-style illumination. High density wiring suited for wrapping stair railings and doorways.',
+    image_url: '/uploads/sample_rice_lights.jpg',
+    category: 'Fairy and String Lights',
+    price: 180,
+    variations: {
+      colors: ['Golden Glow', 'Emerald Green'],
+      sizes: ['12 Metres', '25 Metres'],
+      pack_size: 'Single Bundle'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-08T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-08T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-009',
+    name: 'Glowing Crystal LED Lotus Pooja Lamp',
+    description: 'Auspicious multi-petal crystal lotus flower lamp with steady ambient LED illumination. Adds divine grace and spiritual elegance to Diwali pooja thalis and altars.',
+    image_url: '/uploads/sample_lotus_lamp.jpg',
+    category: 'LED Diyas and Lamps',
+    price: 499,
+    variations: {
+      colors: ['Rose Pink Glow', 'Amber Gold Glow'],
+      sizes: ['15cm Diameter'],
+      pack_size: 'Single Piece'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-09T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-09T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-010',
+    name: 'Star Curtain Hanging LED Lights (12 Stars)',
+    description: 'Festive curtain arrangement with 6 large and 6 small illuminated LED stars dropping at staggered lengths. Designed for French doors, living room windows, and archways.',
+    image_url: '/uploads/sample_star_lights.jpg',
+    category: 'Curtain and Waterfall Lights',
+    price: 649,
+    variations: {
+      colors: ['Warm Golden', 'Multicolour RGB'],
+      sizes: ['2.5m Width (12 Stars Dropper)'],
+      pack_size: '1 Set'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-10T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-10T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-011',
+    name: 'Traditional Moroccan Lantern LED String Lights',
+    description: 'Intricately stamped golden metal Moroccan lantern shades with built-in warm LEDs. Projects ornate decorative shadow patterns across festive walls and entryways.',
+    image_url: '/uploads/sample_lantern_lights.jpg',
+    category: 'Hanging and Entrance Decorations',
+    price: 749,
+    variations: {
+      colors: ['Vintage Brass Gold'],
+      sizes: ['4 Metres (16 Lanterns)', '8 Metres (32 Lanterns)'],
+      pack_size: '1 String'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-11T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-11T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-012',
+    name: 'Illuminated LED Entrance Toran for Main Door',
+    description: 'Festive main entrance bandanwar/toran illuminated with integrated micro-LEDs, decorative golden bells, and faux marigold blossoms. Welcomes Lakshmi with auspicious light.',
+    image_url: '/uploads/sample_led_toran.jpg',
+    category: 'Hanging and Entrance Decorations',
+    price: 899,
+    variations: {
+      colors: ['Marigold Orange & Gold', 'Deep Crimson & Gold'],
+      sizes: ['3.5 Feet Standard Door', '4.5 Feet Double Door'],
+      pack_size: 'Single Piece with Plug'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-12T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-12T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-013',
+    name: 'Festive Outdoor LED Net Mesh Lights',
+    description: 'Expandable 2x2 metre diamond net mesh filled with 200 evenly spaced bright LEDs. Easy 2-minute installation over balcony railings, bushes, hedges, and trees.',
+    image_url: '/uploads/sample_net_lights.jpg',
+    category: 'Decorative Lighting Sets',
+    price: 699,
+    variations: {
+      colors: ['Warm White', 'Multicolour'],
+      sizes: ['2m x 2m Mesh (200 LEDs)', '3m x 2m Mesh (320 LEDs)'],
+      pack_size: '1 Mesh Unit'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-13T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-13T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-014',
+    name: 'Cascading Waterfall Meteor Shower LED Lights',
+    description: 'Dynamic cascading light tubes mimicking gentle snowfall and water flow. IP65 outdoor rated, magnificent when hung from trees, balcony ceilings, or front porches.',
+    image_url: '/uploads/sample_waterfall_lights.jpg',
+    category: 'Curtain and Waterfall Lights',
+    price: 999,
+    variations: {
+      colors: ['Warm White', 'Cool White', 'Multicolour'],
+      sizes: ['8 Tubes (30cm each)', '10 Tubes (50cm each)'],
+      pack_size: '1 Set of Tubes'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-14T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-14T10:00:00Z').toISOString()
+  },
+  {
+    id: 'prod-015',
+    name: 'Hanging Diya Chandelier LED Ceiling Accent',
+    description: 'Multi-tier hanging chandelier featuring suspended acrylic glowing diyas with golden brass finish rods. A magnificent centrepiece for living room ceilings and festive foyers.',
+    image_url: '/uploads/sample_hanging_diya.jpg',
+    category: 'Hanging and Entrance Decorations',
+    price: null, // Explicit Price on Enquiry demonstration
+    variations: {
+      colors: ['Antique Gold with Amber LEDs'],
+      sizes: ['5-Diya Tier', '7-Diya Deluxe Tier'],
+      pack_size: 'Complete Chandelier with Mounting Bracket'
+    },
+    availability: 'in_stock',
+    created_at: new Date('2024-10-15T10:00:00Z').toISOString(),
+    updated_at: new Date('2024-10-15T10:00:00Z').toISOString()
+  }
+];
+
+class ProductDatabase {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    if (!fs.existsSync(DB_FILE)) {
+      console.log('Seeding initial 15 Diwali decorative light products...');
+      this.saveAll(INITIAL_PRODUCTS);
+    }
+  }
+
+  getAll() {
+    try {
+      const data = fs.readFileSync(DB_FILE, 'utf-8');
+      return JSON.parse(data);
+    } catch (err) {
+      console.error('Error reading products database:', err);
+      return INITIAL_PRODUCTS;
+    }
+  }
+
+  getById(id) {
+    const products = this.getAll();
+    return products.find(p => p.id === id) || null;
+  }
+
+  saveAll(products) {
+    const tempFile = `${DB_FILE}.tmp.${Date.now()}`;
+    fs.writeFileSync(tempFile, JSON.stringify(products, null, 2), 'utf-8');
+    fs.renameSync(tempFile, DB_FILE);
+    return products;
+  }
+
+  create(productData) {
+    const products = this.getAll();
+    const newProduct = {
+      id: `prod-${Date.now()}`,
+      name: productData.name.trim(),
+      description: productData.description.trim(),
+      image_url: productData.image_url || '/placeholder.svg',
+      category: productData.category || 'Decorative Lighting Sets',
+      price: productData.price === null || productData.price === '' || productData.price === undefined 
+        ? null 
+        : Number(productData.price),
+      variations: {
+        colors: Array.isArray(productData.variations?.colors) 
+          ? productData.variations.colors 
+          : (productData.variations?.colors ? [productData.variations.colors] : []),
+        sizes: Array.isArray(productData.variations?.sizes) 
+          ? productData.variations.sizes 
+          : (productData.variations?.sizes ? [productData.variations.sizes] : []),
+        pack_size: productData.variations?.pack_size || 'Single Piece'
+      },
+      availability: productData.availability || 'in_stock',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    };
+
+    products.unshift(newProduct);
+    this.saveAll(products);
+    return newProduct;
+  }
+
+  update(id, updateData) {
+    const products = this.getAll();
+    const index = products.findIndex(p => p.id === id);
+    if (index === -1) return null;
+
+    const current = products[index];
+    const updatedProduct = {
+      ...current,
+      name: updateData.name !== undefined ? updateData.name.trim() : current.name,
+      description: updateData.description !== undefined ? updateData.description.trim() : current.description,
+      image_url: updateData.image_url !== undefined ? updateData.image_url : current.image_url,
+      category: updateData.category !== undefined ? updateData.category : current.category,
+      price: updateData.price === null || updateData.price === '' || updateData.price === undefined 
+        ? null 
+        : Number(updateData.price),
+      variations: {
+        colors: updateData.variations?.colors !== undefined ? updateData.variations.colors : current.variations?.colors || [],
+        sizes: updateData.variations?.sizes !== undefined ? updateData.variations.sizes : current.variations?.sizes || [],
+        pack_size: updateData.variations?.pack_size !== undefined ? updateData.variations.pack_size : current.variations?.pack_size || 'Single Piece'
+      },
+      availability: updateData.availability !== undefined ? updateData.availability : current.availability,
+      updated_at: new Date().toISOString()
+    };
+
+    products[index] = updatedProduct;
+    this.saveAll(products);
+    return updatedProduct;
+  }
+
+  delete(id) {
+    const products = this.getAll();
+    const index = products.findIndex(p => p.id === id);
+    if (index === -1) return false;
+
+    const [deleted] = products.splice(index, 1);
+    this.saveAll(products);
+    return deleted;
+  }
+
+  resetToInitial() {
+    this.saveAll(INITIAL_PRODUCTS);
+    return INITIAL_PRODUCTS;
+  }
+}
+
+export const db = new ProductDatabase();
