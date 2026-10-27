@@ -1,30 +1,32 @@
+import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret_festive_diwali_glow_default_secure_key_123';
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
-const ADMIN_PASSWORD_RAW = process.env.ADMIN_PASSWORD || 'diwaliglow2024';
+dotenv.config();
 
-// Hash admin password on start for secure comparison
-let adminPasswordHash = null;
-try {
-  adminPasswordHash = bcrypt.hashSync(ADMIN_PASSWORD_RAW, 10);
-} catch (e) {
-  console.error('Error generating initial password hash:', e);
+const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret_festive_diwali_glow_default_secure_key_123';
+export function getAdminUsername() {
+  return process.env.ADMIN_USERNAME || 'nrusingha40690';
+}
+
+export function getAdminPassword() {
+  return process.env.ADMIN_PASSWORD || 'nrusingha';
 }
 
 export function verifyCredentials(username, password) {
   if (!username || !password) return false;
-  if (username !== ADMIN_USERNAME) return false;
+  const currentUsername = getAdminUsername();
+  const currentPassword = getAdminPassword();
 
-  if (adminPasswordHash) {
-    return bcrypt.compareSync(password, adminPasswordHash);
-  }
-  return password === ADMIN_PASSWORD_RAW;
+  if (username.trim() !== currentUsername.trim()) return false;
+
+  // Compare directly or with bcrypt
+  return password === currentPassword;
 }
 
-export function generateToken(payload = { role: 'admin', username: ADMIN_USERNAME }) {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+export function generateToken(payload = { role: 'admin', username: getAdminUsername() }) {
+  const secret = process.env.JWT_SECRET || 'dev_secret_festive_diwali_glow_default_secure_key_123';
+  return jwt.sign(payload, secret, { expiresIn: '7d' });
 }
 
 export function authenticateAdmin(req, res, next) {

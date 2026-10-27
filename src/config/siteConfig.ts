@@ -3,8 +3,8 @@ import { SiteConfig } from '../types';
 export const siteConfig: SiteConfig = {
   storeName: import.meta.env.VITE_STORE_NAME || 'Diwali Glow',
   tagline: import.meta.env.VITE_STORE_TAGLINE || 'Decorative LED Lights & Festive Lighting',
-  // Configure business WhatsApp number without + or punctuation (e.g. 919876543210)
-  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || '919876543210',
+  // Configure business WhatsApp number without + or punctuation (e.g. 917848080755)
+  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || '917848080755',
   announcementText: import.meta.env.VITE_ANNOUNCEMENT_TEXT || 'Light Up Your Diwali ✨ | Discover Our Festive Lighting Collection',
   currency: 'INR',
   currencySymbol: '₹',

@@ -134,7 +134,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onBackToStore }) => {
               Default local credentials configured in <code className="text-amber-300 font-mono">.env</code>:
             </p>
             <p className="text-[11px] text-slate-300 font-mono mt-1">
-              Username: <span className="text-amber-400">admin</span> | Password: <span className="text-amber-400">diwaliglow2024</span>
+              Username: <span className="text-amber-400">nrusingha40690</span> | Password: <span className="text-amber-400">nrusingha</span>
             </p>
           </div>
         </div>
