@@ -211,15 +211,25 @@ c:/Users/gupta/Desktop/light/
 
 ## 🚢 Deployment Guide
 
-### Option A: Unified Node.js Deployment (Render, Railway, Heroku, VPS)
-1. Run `npm run build` to generate the frontend build in `dist/`.
-2. Set environment variables on your host (`NODE_ENV=production`, `PORT`, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `JWT_SECRET`, `WHATSAPP_NUMBER`).
-3. Run `npm start` (or `node server/index.js`). The server will automatically serve the static `dist/` bundle and the `/api` routes on the single configured port.
+### Option A: Vercel Serverless Full-Stack Deployment (Recommended)
+This repository includes native Vercel serverless integration (`vercel.json` and `api/index.js`):
+1. Push this project to your GitHub repository (e.g. `festora`).
+2. Log in to [Vercel](https://vercel.com) and click **"Add New Project"** -> **"Import"** `festora`.
+3. Add the following Environment Variables in the Vercel project settings:
+   - `ADMIN_USERNAME`: `nrusingha40690`
+   - `ADMIN_PASSWORD`: `nrusingha`
+   - `JWT_SECRET`: `your_random_secret_string`
+   - `WHATSAPP_NUMBER`: `917848080755`
+   - `VITE_WHATSAPP_NUMBER`: `917848080755`
+   - `VITE_STORE_NAME`: `Festora`
+   - `VITE_STORE_EMAIL`: `miishnru@gmail.com`
+   - `VITE_CONTACT_PHONE`: `7848080755`
+4. Click **Deploy**. Vercel will build the frontend into static CDN assets and serve the Express `/api` routes seamlessly via serverless functions.
 
-### Option B: Frontend on Vercel/Netlify + Backend on Render/Railway
-1. Deploy `server/` to Render or Railway. Set environment variables.
-2. In `src/vite.config.ts`, set proxy target to your production backend URL, or configure `VITE_API_URL`.
-3. Deploy frontend on Vercel with root directory set to `.`.
+### Option B: Unified Node.js Deployment (Render, Railway, VPS)
+1. Run `npm run build` to generate the frontend build in `dist/`.
+2. Set environment variables on your host (`NODE_ENV=production`, `PORT=5000`, `ADMIN_USERNAME`, etc.).
+3. Run `npm start` (or `node server/index.js`). The server will automatically serve the static `dist/` bundle and the `/api` routes on the single configured port.
 
 ### Option C: Using Supabase
 1. Run `supabase/schema.sql` in the Supabase SQL editor.
