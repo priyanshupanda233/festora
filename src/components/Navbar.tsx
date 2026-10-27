@@ -32,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const { url: directWhatsAppUrl } = buildWhatsAppUrl(
     siteConfig.whatsappNumber,
-    'Hello! 👋 I am browsing the Diwali Glow website and would like to enquire about your decorative festive lights collection.'
+    `Hello! 👋 I am browsing the ${siteConfig.storeName} website and would like to enquire about your decorative festive lights collection.`
   );
 
   return (

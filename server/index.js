@@ -90,10 +90,12 @@ app.get('/api/products/:id', (req, res) => {
 // Public store configuration (non-sensitive)
 app.get('/api/config', (req, res) => {
   res.json({
-    storeName: process.env.VITE_STORE_NAME || 'Diwali Glow',
+    storeName: process.env.VITE_STORE_NAME || 'Festora',
     tagline: process.env.VITE_STORE_TAGLINE || 'Decorative LED Lights & Festive Lighting',
-    whatsappNumber: process.env.WHATSAPP_NUMBER || '91XXXXXXXXXX',
-    announcementText: process.env.VITE_ANNOUNCEMENT_TEXT || 'Light Up Your Diwali ✨ | Discover Our Festive Lighting Collection',
+    whatsappNumber: process.env.WHATSAPP_NUMBER || '917848080755',
+    phoneNumber: process.env.VITE_CONTACT_PHONE || '7848080755',
+    email: process.env.VITE_STORE_EMAIL || 'miishnru@gmail.com',
+    announcementText: process.env.VITE_ANNOUNCEMENT_TEXT || 'Light Up Your Celebrations ✨ | Discover Festora Festive Lighting Collection',
     currency: 'INR',
     currencySymbol: '₹'
   });
@@ -293,6 +295,6 @@ app.use((err, req, res, next) => {
 
 // Start Server
 app.listen(PORT, () => {
-  console.log(`✨ Diwali Glow Backend API running on http://localhost:${PORT}`);
+  console.log(`✨ Festora Backend API running on http://localhost:${PORT}`);
   console.log(`📁 Persistent storage path: ${UPLOADS_DIR}`);
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, MessageCircle, Heart, Lock } from 'lucide-react';
+import { Flame, MessageCircle, Heart, Lock, Phone, Mail } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { CATEGORIES } from '../data/categories';
 import { buildWhatsAppUrl } from '../utils/whatsapp';
@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({
   const currentYear = new Date().getFullYear();
   const { url: directWhatsAppUrl } = buildWhatsAppUrl(
     siteConfig.whatsappNumber,
-    'Hello! 👋 I am browsing Diwali Glow and would like to enquire about decorative lights.'
+    `Hello! 👋 I am browsing ${siteConfig.storeName} and would like to enquire about decorative lights.`
   );
 
   return (
@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-festive-border/60">
           
-          {/* Brand Info */}
+          {/* Brand Info & Direct Contacts */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 flex items-center justify-center shadow-glow-sm">
@@ -41,10 +41,35 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Premium decorative electronic & LED lights for Diwali and Indian celebrations. Modern flameless diyas, fairy light waterfalls, curtain drops, and festive installations.
+              Premium decorative electronic & LED lights for Diwali and Indian festive celebrations. Modern flameless diyas, fairy light waterfalls, curtain drops, and custom festive installations.
             </p>
 
-            <div>
+            {/* Direct Contact Numbers & Email in Footer */}
+            <div className="space-y-2 pt-1 text-xs">
+              <div className="flex items-center gap-2 text-slate-300">
+                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>Call / Contact:</span>
+                <a
+                  href={`tel:+91${siteConfig.phoneNumber || '7848080755'}`}
+                  className="font-bold text-amber-300 hover:text-amber-200 transition-colors"
+                >
+                  +91 {siteConfig.phoneNumber || '7848080755'}
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2 text-slate-300">
+                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>Email:</span>
+                <a
+                  href={`mailto:${siteConfig.email || 'miishnru@gmail.com'}`}
+                  className="font-medium text-amber-300 hover:text-amber-200 transition-colors"
+                >
+                  {siteConfig.email || 'miishnru@gmail.com'}
+                </a>
+              </div>
+            </div>
+
+            <div className="pt-1">
               <a
                 href={directWhatsAppUrl}
                 target="_blank"
@@ -52,7 +77,7 @@ export const Footer: React.FC<FooterProps> = ({
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 text-xs font-semibold transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Chat on WhatsApp</span>
+                <span>Chat on WhatsApp (+91 {siteConfig.phoneNumber || '7848080755'})</span>
               </a>
             </div>
           </div>

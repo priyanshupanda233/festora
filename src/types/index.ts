@@ -44,6 +44,7 @@ export interface SiteConfig {
   businessAddress?: string;
   businessHours?: string;
   email?: string;
+  phoneNumber?: string;
 }
 
 export type SortOption = 

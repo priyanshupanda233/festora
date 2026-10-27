@@ -1,5 +1,5 @@
 import React from 'react';
-import { ABOUT_CONTENT } from '../config/siteConfig';
+import { ABOUT_CONTENT, siteConfig } from '../config/siteConfig';
 import { Flame, ShieldCheck, HeartHandshake } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
@@ -47,7 +47,7 @@ export const AboutSection: React.FC = () => {
           {/* Right Text Column */}
           <div className="lg:col-span-7 space-y-6">
             <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold">
-              About Diwali Glow
+              About {siteConfig.storeName}
             </span>
 
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">

@@ -1,6 +1,6 @@
-# ✨ Diwali Glow — Festive Decorative LED Lights Website & Admin Portal
+# ✨ Festora — Festive Decorative LED Lights Website & Admin Portal
 
-A full-stack, responsive web application for selling Diwali decorative electronic LED lights and festive illumination products in India. Includes a customer-facing product catalogue with an interactive enquiry cart and direct WhatsApp handoff, alongside a private authenticated Admin Dashboard for catalogue and image management.
+A full-stack, responsive web application for selling festive decorative electronic LED lights and illumination products across India. Includes a customer-facing product catalogue with an interactive enquiry cart and direct WhatsApp handoff, alongside a private authenticated Admin Dashboard for catalogue and image management.
 
 ---
 
@@ -86,19 +86,21 @@ PORT=5000
 NODE_ENV=development
 
 # Admin Authentication (Change these before deploying to production!)
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=diwaliglow2024
+ADMIN_USERNAME=nrusingha40690
+ADMIN_PASSWORD=nrusingha
 JWT_SECRET=festive_diwali_glow_super_secret_dev_key_2024_secure
 
 # WhatsApp Business Configuration
 # Set your WhatsApp number in international format without + sign, spaces, or dashes
-WHATSAPP_NUMBER=919876543210
+WHATSAPP_NUMBER=917848080755
 
 # Store Configuration
-VITE_STORE_NAME="Diwali Glow"
+VITE_STORE_NAME="Festora"
 VITE_STORE_TAGLINE="Decorative LED Lights & Festive Lighting"
-VITE_WHATSAPP_NUMBER=919876543210
-VITE_ANNOUNCEMENT_TEXT="Light Up Your Diwali ✨ | Discover Our Festive Lighting Collection"
+VITE_STORE_EMAIL="miishnru@gmail.com"
+VITE_CONTACT_PHONE="7848080755"
+VITE_WHATSAPP_NUMBER=917848080755
+VITE_ANNOUNCEMENT_TEXT="Light Up Your Celebrations ✨ | Discover Festora Festive Lighting Collection"
 ```
 
 ### 3. Install Dependencies
@@ -129,8 +131,10 @@ Or start them individually in separate terminals:
 
 - **Public Storefront:** [http://localhost:5173/](http://localhost:5173/)
 - **Admin Dashboard:** [http://localhost:5173/admin](http://localhost:5173/admin)
-  - Default Username: `admin`
-  - Default Password: `diwaliglow2024`
+  - Username: `nrusingha40690`
+  - Password: `nrusingha`
+  - Contact Number: `7848080755`
+  - Email: `miishnru@gmail.com`
 
 ---
 

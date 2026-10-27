@@ -96,9 +96,29 @@ export const ContactSection: React.FC = () => {
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider">
                     Email Enquiries
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-0.5">
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="text-xs sm:text-sm text-slate-300 hover:text-amber-300 transition-colors mt-0.5 block"
+                  >
                     {siteConfig.email}
-                  </p>
+                  </a>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-festive-surface/80 border border-festive-border/80 flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
+                  <MessageCircle className="w-4 h-4" />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+                    Phone & WhatsApp
+                  </h4>
+                  <a
+                    href={`tel:+91${siteConfig.phoneNumber || '7848080755'}`}
+                    className="text-xs sm:text-sm font-semibold text-amber-300 hover:text-amber-200 transition-colors mt-0.5 block"
+                  >
+                    +91 {siteConfig.phoneNumber || '7848080755'}
+                  </a>
                 </div>
               </div>
             </div>

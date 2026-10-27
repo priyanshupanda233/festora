@@ -1,16 +1,17 @@
 import { SiteConfig } from '../types';
 
 export const siteConfig: SiteConfig = {
-  storeName: import.meta.env.VITE_STORE_NAME || 'Diwali Glow',
+  storeName: import.meta.env.VITE_STORE_NAME || 'Festora',
   tagline: import.meta.env.VITE_STORE_TAGLINE || 'Decorative LED Lights & Festive Lighting',
   // Configure business WhatsApp number without + or punctuation (e.g. 917848080755)
   whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || '917848080755',
-  announcementText: import.meta.env.VITE_ANNOUNCEMENT_TEXT || 'Light Up Your Diwali ✨ | Discover Our Festive Lighting Collection',
+  announcementText: import.meta.env.VITE_ANNOUNCEMENT_TEXT || 'Light Up Your Celebrations ✨ | Discover Festora Lighting Collection',
   currency: 'INR',
   currencySymbol: '₹',
   businessAddress: 'Festive Lighting Distribution Hub, India',
   businessHours: 'Mon - Sun: 9:00 AM - 10:00 PM (Festive Season)',
-  email: 'contact@diwaliglow.in',
+  email: import.meta.env.VITE_STORE_EMAIL || 'miishnru@gmail.com',
+  phoneNumber: import.meta.env.VITE_CONTACT_PHONE || '7848080755',
 };
 
 export const SITE_BENEFITS = [
@@ -37,10 +38,10 @@ export const SITE_BENEFITS = [
 ];
 
 export const ABOUT_CONTENT = {
-  title: 'Illuminate Your Celebrations with Diwali Glow',
+  title: 'Illuminate Your Celebrations with Festora',
   lead: 'Discover decorative lighting for every festive corner. From glowing LED diyas to colourful string lights and statement decorations, explore our collection and contact us directly for product availability and pricing.',
   paragraphs: [
-    'At Diwali Glow, we curate modern electronic and LED decorative lighting that brings warmth, festive elegance, and joy to homes across India without the soot, smoke, or fire hazards of traditional setups.',
+    'At Festora, we curate modern electronic and LED decorative lighting that brings warmth, festive elegance, and joy to homes across India without the soot, smoke, or fire hazards of traditional setups.',
     'Whether you are decorating an intimate living room altar, an expansive balcony, or an entire residential building, our collection of energy-efficient LED lights creates timeless celebratory memories.'
   ]
 };
