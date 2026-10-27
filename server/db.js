@@ -5,12 +5,19 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DATA_DIR = path.join(__dirname, 'data');
+const isVercel = process.env.VERCEL === '1' || process.env.VERCEL === 'true' || Boolean(process.env.AWS_LAMBDA_FUNCTION_NAME);
+const LOCAL_DATA_DIR = path.join(__dirname, 'data');
+const DATA_DIR = isVercel ? '/tmp' : LOCAL_DATA_DIR;
 const DB_FILE = path.join(DATA_DIR, 'products.json');
+const SEED_FILE = path.join(LOCAL_DATA_DIR, 'products.json');
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  } catch (e) {
+    console.warn('Could not create DATA_DIR:', e);
+  }
 }
 
 // 15 Initial Sample Electronic/LED Festive Lighting Products
@@ -264,15 +271,30 @@ class ProductDatabase {
 
   init() {
     if (!fs.existsSync(DB_FILE)) {
-      console.log('Seeding initial 15 Diwali decorative light products...');
+      if (fs.existsSync(SEED_FILE)) {
+        try {
+          const seedData = fs.readFileSync(SEED_FILE, 'utf-8');
+          fs.writeFileSync(DB_FILE, seedData, 'utf-8');
+          return;
+        } catch (e) {
+          console.warn('Could not copy seed data to DB_FILE:', e);
+        }
+      }
       this.saveAll(INITIAL_PRODUCTS);
     }
   }
 
   getAll() {
     try {
-      const data = fs.readFileSync(DB_FILE, 'utf-8');
-      return JSON.parse(data);
+      if (fs.existsSync(DB_FILE)) {
+        const data = fs.readFileSync(DB_FILE, 'utf-8');
+        return JSON.parse(data);
+      }
+      if (fs.existsSync(SEED_FILE)) {
+        const data = fs.readFileSync(SEED_FILE, 'utf-8');
+        return JSON.parse(data);
+      }
+      return INITIAL_PRODUCTS;
     } catch (err) {
       console.error('Error reading products database:', err);
       return INITIAL_PRODUCTS;
@@ -285,9 +307,18 @@ class ProductDatabase {
   }
 
   saveAll(products) {
-    const tempFile = `${DB_FILE}.tmp.${Date.now()}`;
-    fs.writeFileSync(tempFile, JSON.stringify(products, null, 2), 'utf-8');
-    fs.renameSync(tempFile, DB_FILE);
+    try {
+      const tempFile = `${DB_FILE}.tmp.${Date.now()}`;
+      fs.writeFileSync(tempFile, JSON.stringify(products, null, 2), 'utf-8');
+      fs.renameSync(tempFile, DB_FILE);
+    } catch (e) {
+      console.warn('Fallback: Writing directly to DB_FILE:', e);
+      try {
+        fs.writeFileSync(DB_FILE, JSON.stringify(products, null, 2), 'utf-8');
+      } catch (err) {
+        console.error('Could not write products to disk:', err);
+      }
+    }
     return products;
   }
 
